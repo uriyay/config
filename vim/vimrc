@@ -1,0 +1,22 @@
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set number
+
+set ignorecase
+set smartcase
+set incsearch
+
+set mouse=a
+
+execute pathogen#infect()
+syntax on
+filetype plugin indent on
+
+" FuzzyFinder mapping
+map <F3> :FufFile<CR>
+" tabnew, tabnew
+map \tt :tabnew<CR>
+map \tf :tabnew<CR>:FufFile<CR>
+map \tn :tabnext<CR>
+map \tp :tabprev<CR>
