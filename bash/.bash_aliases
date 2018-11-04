@@ -1,9 +1,18 @@
 function cd_func()
 {
-    if [ $1 = "-" ]; then
+    path=""
+    if [ "$1" = "-" ]; then
         popd 2>/dev/null 1>&2
-    else
-        pushd $1 2>/dev/null 1>&2
+    else    
+        if [ -z "$1" ]; then
+            path="~/"
+        else
+            path="$1"
+        fi
+
+        if [ "$(realpath $PWD)" != "$(realpath $path)" ]; then
+            pushd $1 2>/dev/null 1>&2
+        fi
     fi
 }
 alias cd=cd_func
