@@ -11,7 +11,7 @@ function cd_func()
         fi
 
         if [ "$(realpath $PWD)" != "$(realpath $path)" ]; then
-            pushd $1 2>/dev/null 1>&2
+            pushd "$1" 2>/dev/null 1>&2
         fi
     fi
 }
