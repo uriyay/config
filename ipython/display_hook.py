@@ -16,15 +16,22 @@ def enable_display_hook():
     '''
     formatter = get_ipython().display_formatter.formatters['text/plain']
     original_display[int] = formatter.for_type(int)
-    original_display[long] = formatter.for_type(long)
     formatter.for_type(int, display_callback)
-    formatter.for_type(long, display_callback)
+    try:
+        original_display[long] = formatter.for_type(long)
+        formatter.for_type(long, display_callback)
+    except NameError:
+        #no 'long' type in python3
+        pass
 
 
 def disable_display_hook():
     '''See documentation for hexon_ipython().'''
     formatter = get_ipython().display_formatter.formatters['text/plain']
     formatter.for_type(int, original_display.get(int))
-    formatter.for_type(long, original_display.get(long))
+    try:
+        formatter.for_type(long, original_display.get(long))
+    except NameError:
+        pass
 
 enable_display_hook()
