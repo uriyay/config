@@ -1,17 +1,18 @@
 function cd_func()
 {
     path=""
-    if [ "$1" = "-" ]; then
+    if [ "$*" = "-" ]; then
         popd 2>/dev/null 1>&2
     else    
         if [ -z "$1" ]; then
-            path="~/"
+            path="$HOME"
         else
-            path="$1"
+            path="$*"
         fi
 
-        if [ "$(realpath $PWD)" != "$(realpath $path)" ]; then
-            pushd "$1" 2>/dev/null 1>&2
+        path_real=$(realpath $path)
+        if [ "$PWD" != "$path_real" ]; then
+            pushd "$path_real" 2>/dev/null 1>&2
         fi
     fi
 }
