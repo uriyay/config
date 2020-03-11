@@ -33,3 +33,9 @@ function up_func()
     cd $path
 }
 alias up=up_func
+
+#wsl-stuff
+if [ ! -z "$(cat /proc/version | grep -o Microsoft)" ]; then
+    alias here="cmd.exe /c start explorer ."
+    alias cmd="cmd.exe /c start cmd"
+fi
