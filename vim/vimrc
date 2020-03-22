@@ -20,3 +20,6 @@ map \tt :tabnew<CR>
 map \tf :tabnew<CR>:FufFile<CR>
 map \tn :tabnext<CR>
 map \tp :tabprev<CR>
+
+" map Y to copy until the end of line
+nnoremap Y y$
