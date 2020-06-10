@@ -27,7 +27,11 @@ alias mkcd=mkcd_func
 function up_func()
 {
     path="./"
-    for ((i=0; i<$1; i++)); do
+    level=$1
+    if [ -z "$level" ]; then
+        level=1
+    fi
+    for ((i=0; i<$level; i++)); do
         path+="../"
     done
     cd $path
