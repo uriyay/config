@@ -10,7 +10,7 @@ function cd_func()
             path="$*"
         fi
 
-        path_real=$(realpath $path)
+        path_real=$(realpath "$path")
         if [ "$PWD" != "$path_real" ]; then
             pushd "$path_real" 2>/dev/null 1>&2
         fi
