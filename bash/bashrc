@@ -1,0 +1,2 @@
+#For WSL: Patch LS_COLORS so directories background won't be green
+LS_COLORS='ow=01;36;40'; export LS_COLORS
