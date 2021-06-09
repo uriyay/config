@@ -39,7 +39,7 @@ function up_func()
 alias up=up_func
 
 #wsl-stuff
-if [ ! -z "$(cat /proc/version | grep -o Microsoft)" ]; then
+if [ ! -z "$(cat /proc/version | grep -io microsoft)" ]; then
     alias here="cmd.exe /c start explorer ."
     alias cmd="cmd.exe /c start cmd"
 fi
