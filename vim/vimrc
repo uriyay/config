@@ -24,6 +24,6 @@ map \tp :tabprev<CR>
 " map Y to copy until the end of line
 nnoremap Y y$
 
-# prevent connecting to xserver, in WSL when the clipboard is not disabled - vim will try to connect to the xserver, and if the xserver is not running it will block the starting of vim
-# for root - add this line to /etc/vim/vimrc
+" prevent connecting to xserver, in WSL when the clipboard is not disabled - vim will try to connect to the xserver, and if the xserver is not running it will block the starting of vim
+" for root - add this line to /etc/vim/vimrc
 set clipboard=exclude:.*
